@@ -1,12 +1,14 @@
 import utils.DruidUtils;
 import utils.JdbcUtils;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class Test02_2_FindAll {
+public class Test04_3_FindAll {
     public static void main(String[] args) {
-        JdbcUtils utils = new JdbcUtils();
-         Connection conn = utils.getConnection();
+        Connection conn = DruidUtils.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
@@ -22,7 +24,11 @@ public class Test02_2_FindAll {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            utils.close(rs, pst, conn);
+            try {
+                conn.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
 }
