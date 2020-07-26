@@ -22,6 +22,10 @@ public class DruidUtils {
         }
     }
 
+    public static DataSource getDs() {
+        return ds;
+    }
+
     public static Connection getConnection(){
         Connection conn = null;
         try {
