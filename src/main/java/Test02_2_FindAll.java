@@ -1,8 +1,10 @@
+import utils.JdbcUtils;
+
 import java.sql.*;
 
 public class Test02_2_FindAll {
     public static void main(String[] args) {
-        Test02_1_JDBCUtils utils = new Test02_1_JDBCUtils();
+        JdbcUtils utils = new JdbcUtils();
         Connection conn = utils.getConnection();
         PreparedStatement pst = null;
         ResultSet rs = null;

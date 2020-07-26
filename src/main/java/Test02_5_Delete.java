@@ -1,10 +1,12 @@
+import utils.JdbcUtils;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Test02_5_Delete {
     public static void main(String[] args) {
-        Test02_1_JDBCUtils utils = new Test02_1_JDBCUtils();
+        JdbcUtils utils = new JdbcUtils();
         Connection conn = utils.getConnection();
         PreparedStatement pst = null;
         String sql = "delete from account where id < ?";
